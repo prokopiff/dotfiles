@@ -1,0 +1,41 @@
+[global_config]
+[keybindings]
+  split_horiz = <Primary><Shift>Down
+  resize_down = None
+[profiles]
+  [[default]]
+    background_color = "#282a36"
+    cursor_color = "#f8f8f2"
+    # https://github.com/adobe-fonts/source-code-pro/releases
+    font = Source Code Pro 12
+    foreground_color = "#f8f8f2"
+    scrollback_lines = 20000
+    palette = "#262626:#e356a7:#42e66c:#e4f34a:#9b6bdf:#e64747:#75d7ec:#efa554:#7a7a7a:#ff79c6:#50fa7b:#f1fa8c:#bd93f9:#ff5555:#8be9fd:#ffb86c"
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+  [[right]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 1920:48
+      maximised = False
+      fullscreen = False
+      size = 1919, 2084
+      title = vp@vp-desktop:~
+      last_active_term = 14e4afbd-39b5-4519-a908-b4b9221981df
+      last_active_window = True
+    [[[terminal1]]]
+      type = Terminal
+      parent = child0
+      order = 0
+      profile = default
+      uuid = 14e4afbd-39b5-4519-a908-b4b9221981df
+[plugins]
