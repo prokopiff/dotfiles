@@ -36,6 +36,9 @@ cargo install broot
 cargo install du-dust
 cargo install tokei
 
+# starship
 bash -c "$(curl -fsSL https://starship.rs/install.sh)"
-
 ```
+
+## Install fonts
+https://github.com/adobe-fonts/source-code-pro/releases/
