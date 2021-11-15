@@ -30,7 +30,9 @@ chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 mv ~/.zshrc{.pre-oh-my-zsh,}
 
-# Rust
+# Rust and tools
 curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
-
+cargo install broot
+cargo install du-dust
+cargo install tokei
 ```
