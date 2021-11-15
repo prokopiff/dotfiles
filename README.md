@@ -11,6 +11,11 @@ echo "alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" 
 config remote add origin https://github.com/prokopiff/dotfiles.git
 config pull origin master
 config remote set-url origin git@github.com:prokopiff/dotfiles.git
+
+echo 'PATH=$PATH:$HOME/.local/bin' >> ~/.bashrc
+source ~/.bashrc
+
+
 ```
 
 ## Install software
