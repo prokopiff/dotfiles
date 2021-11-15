@@ -84,7 +84,7 @@ gather_repo_metadata() {
 	# elif [[ $IS_BARE == 'true' ]] || [[ $IS_VCSH == 'true' ]]; then
 		# readonly GIT_ATTRIBUTES="${GIT_DIR}/info/attributes"
 	else
-		readonly GIT_ATTRIBUTES="${REPO}/.gitattributes"
+		readonly GIT_ATTRIBUTES="${HOME}/.gitattributes"
 	fi
 }
 
