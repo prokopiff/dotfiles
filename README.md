@@ -23,7 +23,7 @@ config remote set-url origin git@github.com:prokopiff/dotfiles.git
 
 ## Install software
 ```sh
-sudo apt install -y neofetch jq smplayer geany terminator zsh
+sudo apt install -y neofetch jq smplayer geany terminator zsh gcc build-essential 
 
 # oh-my-zsh
 chsh -s $(which zsh)
@@ -35,4 +35,7 @@ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 cargo install broot
 cargo install du-dust
 cargo install tokei
+
+bash -c "$(curl -fsSL https://starship.rs/install.sh)"
+
 ```
