@@ -21,7 +21,6 @@ alias dkillall='docker kill $(docker container ls -q)'
 alias cat="batcat"
 alias ll="exa -lha --group-directories-first"
 alias a="alias | rg"
-alias sysyadm="sudo yadm -Y /etc/yadm"
 alias config='git --git-dir=/home/vp/.dotfiles/ --work-tree=/home/vp'
 alias wttr='curl https://wttr.in/Ivano-Frankivsk'
 alias du='dust -r' #cargo install dust
