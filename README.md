@@ -23,7 +23,7 @@ config remote set-url origin git@github.com:prokopiff/dotfiles.git
 
 ## Install software
 ```sh
-sudo apt install -y neofetch jq smplayer geany terminator zsh gcc build-essential libxcb1-dev libxcb-render0-dev libxcb-xfiles0-dev
+sudo apt install -y neofetch jq smplayer geany terminator zsh gcc build-essential libxcb1-dev libxcb-render0-dev libxcb-xfiles0-dev micro exa
 
 # oh-my-zsh
 chsh -s $(which zsh)
