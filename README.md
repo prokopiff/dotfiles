@@ -28,4 +28,5 @@ sudo apt install -y neofetch jq smplayer geany terminator zsh
 # oh-my-zsh
 chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+mv ~/.zshrc{.pre-oh-my-zsh,}
 ```
