@@ -14,16 +14,18 @@ echo '.work_aliases filter=crypt diff=crypt merge=crypt' >> $HOME/.dotfiles/info
 echo 'PATH=$PATH:$HOME/.local/bin' >> ~/.bashrc
 source ~/.bashrc
 
-
 cd .dotfiles
 transcrypt
 
 config pull origin master
 config remote set-url origin git@github.com:prokopiff/dotfiles.git
-
 ```
 
 ## Install software
 ```sh
-sudo apt install -y neofetch filezilla jq smplayer geany terminator
+sudo apt install -y neofetch jq smplayer geany terminator zsh
+
+# oh-my-zsh
+chsh -s $(which zsh)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
