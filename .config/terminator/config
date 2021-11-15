@@ -1,12 +1,11 @@
 [global_config]
 [keybindings]
-  split_horiz = <Primary><Shift>Down
+  split_horiz = <Primary><Shift>Return
   resize_down = None
 [profiles]
   [[default]]
     background_color = "#282a36"
     cursor_color = "#f8f8f2"
-    # https://github.com/adobe-fonts/source-code-pro/releases
     font = Source Code Pro 12
     foreground_color = "#f8f8f2"
     scrollback_lines = 20000
