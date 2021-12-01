@@ -2,7 +2,7 @@ export ZSH="/home/vp/.oh-my-zsh"
 
 ZSH_THEME="muse"
 
-plugins=(git adb aws cp docker docker-compose docker-machine gnu-utils gradle history httpie man mvn npm nvm pip sdk sudo rust rustup cargo)
+plugins=(git adb aws cp docker docker-compose docker-machine gnu-utils gradle history httpie man mvn npm nvm pip sdk sudo rust rustup cargo bazel)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -80,6 +80,7 @@ setopt    appendhistory     #Append history to the history file (no overwriting)
 setopt    sharehistory      #Share history across terminals
 setopt    incappendhistory  #Immediately append to the history file, not just when a term is killed
 
-eval "$(starship init zsh)"
-
-[ $[ $RANDOM % 5 ] = 0 ] && fortune | cowsay || neofetch
+if [ "$IN_IDEA" != "1" ]; then
+	eval "$(starship init zsh)"
+	[ $[ $RANDOM % 5 ] = 0 ] && fortune | cowsay || neofetch
+fi
