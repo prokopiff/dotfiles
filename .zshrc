@@ -7,14 +7,14 @@ plugins=(git adb aws cp docker docker-compose docker-machine gnu-utils gradle hi
 source $ZSH/oh-my-zsh.sh
 
 if [[ -n $SSH_CONNECTION ]]; then
-	export EDITOR='nano'
+	export EDITOR='vim'
 else
-	export EDITOR='micro'
+	export EDITOR='vim'
 fi
 
 source /home/vp/.config/broot/launcher/bash/br
 alias brls='br -d -p -g -h' # cargo install broot
-alias zshconfig="micro ~/.zshrc"
+alias zshconfig="vim ~/.zshrc"
 alias zshr="reset && source ~/.zshrc"
 alias tailf="tail -f"
 alias dkillall='docker kill $(docker container ls -q)'
