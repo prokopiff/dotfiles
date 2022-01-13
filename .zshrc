@@ -18,7 +18,7 @@ alias zshconfig="micro ~/.zshrc"
 alias zshr="reset && source ~/.zshrc"
 alias tailf="tail -f"
 alias dkillall='docker kill $(docker container ls -q)'
-alias cat="batcat"
+alias cat="bat"
 alias ll="exa --group-directories-first -l -h -a"
 alias a="alias | rg"
 alias config='git --git-dir=/home/vp/.dotfiles/ --work-tree=/home/vp'
