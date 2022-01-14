@@ -2,7 +2,7 @@ export ZSH="/home/vp/.oh-my-zsh"
 
 ZSH_THEME="muse"
 
-plugins=(git adb aws cp docker docker-compose docker-machine gnu-utils gradle history httpie man mvn npm nvm pip sdk sudo rust bazel)
+plugins=(git adb aws cp docker docker-compose docker-machine gnu-utils gradle history httpie man mvn npm nvm pip sdk sudo rust bazel zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -75,10 +75,23 @@ HISTSIZE=2000               #How many lines of history to keep in memory
 HISTFILE=~/.zsh_history     #Where to save history to disk
 SAVEHIST=100000             #Number of history entries to save to disk
 HISTDUP=erase               #Erase duplicates in the history file
+export HISTORY_IGNORE="(ls|ll|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 setopt hist_ignore_all_dups hist_save_nodups
 setopt    appendhistory     #Append history to the history file (no overwriting)
 setopt    sharehistory      #Share history across terminals
 setopt    incappendhistory  #Immediately append to the history file, not just when a term is killed
+
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey '^ ' autosuggest-accept
+
+### "bat" as manpager
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+### BASH INSULTER (works in zsh though) ###
+if [ -f /etc/bash.command-not-found ]; then
+    . /etc/bash.command-not-found
+fi
 
 if [ "$IN_IDEA" != "1" ]; then
 	eval "$(starship init zsh)"
