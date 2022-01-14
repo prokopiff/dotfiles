@@ -15,7 +15,7 @@ plugins=(
     sudo
     rust
     bazel
-    zsh-autosuggestions
+#    zsh-autosuggestions
     zsh-history-substring-search
     zsh-syntax-highlighting
 )
@@ -99,7 +99,7 @@ setopt    incappendhistory  #Immediately append to the history file, not just wh
 
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
-bindkey '^ ' autosuggest-accept
+#bindkey '^ ' autosuggest-accept
 
 ### "bat" as manpager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
