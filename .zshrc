@@ -62,6 +62,8 @@ export SDKMAN_DIR="/home/vp/.sdkman"
 
 export PATH=$PATH:/home/vp/Tools/kafka_2.13-2.7.0/bin
 
+export CC=$(which gcc-10)
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/vp/Tools/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -82,6 +84,7 @@ source /home/vp/.work_aliases
 source $HOME/.cargo/env
 export PATH=~/.local/bin:"$PATH"
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/home/vp/Tools/hadoop-2.8.5/bin/
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 setopt autocd
