@@ -11,6 +11,7 @@ echo "alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" 
 config remote add origin https://github.com/prokopiff/dotfiles.git
 echo '.zsh_history filter=crypt diff=crypt merge=crypt' >> $HOME/.dotfiles/info/attributes
 echo '.work_aliases filter=crypt diff=crypt merge=crypt' >> $HOME/.dotfiles/info/attributes
+echo '.ssh/config filter=crypt diff=crypt merge=crypt' >> $HOME/.dotfiles/info/attributes
 echo 'PATH=$PATH:$HOME/.local/bin' >> ~/.bashrc
 source ~/.bashrc
 
