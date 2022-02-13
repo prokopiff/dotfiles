@@ -81,6 +81,8 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -c 0 sset Master 2- unmute")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -c 0 sset Master 2+ unmute")),
 ]
 
 groups = [Group(i) for i in "1234567890"]
@@ -126,30 +128,30 @@ layouts = [
     #layout.VerticalTile(**layout_theme),
     #layout.Matrix(**layout_theme),
     #layout.Zoomy(**layout_theme),
-    layout.MonadTall(**layout_theme),
+    #layout.MonadTall(**layout_theme),
     layout.Max(**layout_theme),
-    layout.Stack(num_stacks=2),
-    layout.RatioTile(**layout_theme),
-    layout.TreeTab(
-         font = "Ubuntu",
-         fontsize = 10,
-         sections = ["FIRST", "SECOND", "THIRD", "FOURTH"],
-         section_fontsize = 10,
-         border_width = 2,
-         bg_color = "1c1f24",
-         active_bg = "c678dd",
-         active_fg = "000000",
-         inactive_bg = "a9a1e1",
-         inactive_fg = "1c1f24",
-         padding_left = 0,
-         padding_x = 0,
-         padding_y = 5,
-         section_top = 10,
-         section_bottom = 20,
-         level_shift = 8,
-         vspace = 3,
-         panel_width = 200
-         ),
+    #layout.Stack(num_stacks=2),
+    #layout.RatioTile(**layout_theme),
+    #layout.TreeTab(
+#         font = "Ubuntu",
+#         fontsize = 10,
+#         sections = ["FIRST", "SECOND", "THIRD", "FOURTH"],
+#         section_fontsize = 10,
+#         border_width = 2,
+#         bg_color = "1c1f24",
+#         active_bg = "c678dd",
+#         active_fg = "000000",
+#         inactive_bg = "a9a1e1",
+#         inactive_fg = "1c1f24",
+#         padding_left = 0,
+#         padding_x = 0,
+#         padding_y = 5,
+#         section_top = 10,
+#         section_bottom = 20,
+#         level_shift = 8,
+#         vspace = 3,
+#         panel_width = 200
+#         ),
     layout.Floating(**layout_theme)
 ]
 
@@ -160,26 +162,208 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+colors = [["#282c34", "#282c34"],
+          ["#1c1f24", "#1c1f24"],
+          ["#dfdfdf", "#dfdfdf"],
+          ["#ff6c6b", "#ff6c6b"],
+          ["#98be65", "#98be65"],
+          ["#da8548", "#da8548"],
+          ["#51afef", "#51afef"],
+          ["#c678dd", "#c678dd"],
+          ["#46d9ff", "#46d9ff"],
+          ["#a9a1e1", "#a9a1e1"]]
+
 screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                # widget.TextBox("default config", name="default"),
-                # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
-            ],
+              widget.Sep(
+                       linewidth = 0,
+                       padding = 6,
+                       foreground = colors[2],
+                       background = colors[0]
+                       ),
+#              widget.Image(
+#                       filename = "~/.config/qtile/icons/python-white.png",
+#                       scale = "False",
+#                       mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal)}
+#                       ),
+              widget.Sep(
+                       linewidth = 0,
+                       padding = 6,
+                       foreground = colors[2],
+                       background = colors[0]
+                       ),
+              widget.GroupBox(
+                       font = "Ubuntu Bold",
+                       fontsize = 16,
+                       margin_y = 3,
+                       margin_x = 0,
+                       padding_y = 5,
+                       padding_x = 3,
+                       borderwidth = 3,
+                       active = colors[2],
+                       inactive = colors[7],
+                       rounded = False,
+                       highlight_color = colors[1],
+                       highlight_method = "line",
+                       this_current_screen_border = colors[6],
+                       this_screen_border = colors [4],
+                       other_current_screen_border = colors[6],
+                       other_screen_border = colors[4],
+                       foreground = colors[2],
+                       background = colors[0]
+                       ),
+             widget.TextBox(
+                       text = '|',
+                       font = "Ubuntu Mono",
+                       background = colors[0],
+                       foreground = '474747',
+                       padding = 2,
+                       fontsize = 16
+                       ),
+#              widget.CurrentLayoutIcon(
+#                       custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons")],
+#                       foreground = colors[2],
+#                       background = colors[0],
+#                       padding = 0,
+#                       scale = 0.7
+#                       ),
+              widget.CurrentLayout(
+                       foreground = colors[2],
+                       background = colors[0],
+                       padding = 5
+                       ),
+             widget.TextBox(
+                       text = '|',
+                       font = "Ubuntu Mono",
+                       background = colors[0],
+                       foreground = '474747',
+                       padding = 2,
+                       fontsize = 16
+                       ),
+              widget.WindowName(
+                       foreground = colors[6],
+                       background = colors[0],
+                       padding = 0
+                       ),
+              widget.Systray(
+                       background = colors[0],
+                       padding = 5
+                       ),
+              widget.Sep(
+                       linewidth = 0,
+                       padding = 6,
+                       foreground = colors[0],
+                       background = colors[0]
+                       ),
+              widget.TextBox(
+                       text = '',
+                       font = "Ubuntu Mono",
+                       background = colors[0],
+                       foreground = colors[3],
+                       padding = 0,
+                       fontsize = 37
+                       ),
+             widget.Net(
+                       interface = "enp5s0",
+                       format = 'Net: {down} ↓↑ {up}',
+                       foreground = colors[1],
+                       background = colors[3],
+                       padding = 5
+                       ),
+              widget.TextBox(
+                       text = '',
+                       font = "Ubuntu Mono",
+                       background = colors[3],
+                       foreground = colors[4],
+                       padding = 0,
+                       fontsize = 37
+                       ),
+              widget.ThermalSensor(
+                       foreground = colors[1],
+                       background = colors[4],
+                       threshold = 90,
+                       fmt = 'Temp: {}',
+                       padding = 5
+                       ),
+              widget.TextBox(
+                       text='',
+                       font = "Ubuntu Mono",
+                       background = colors[4],
+                       foreground = colors[5],
+                       padding = 0,
+                       fontsize = 37
+                       ),
+              widget.CheckUpdates(
+                       update_interval = 1800,
+                       distro = "Arch_checkupdates",
+                       display_format = "Updates: {updates} ",
+                       foreground = colors[1],
+                       colour_have_updates = colors[1],
+                       colour_no_updates = colors[1],
+                       mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' -e sudo pacman -Syu')},
+                       padding = 5,
+                       background = colors[5]
+                       ),
+              widget.TextBox(
+                       text = '',
+                       font = "Ubuntu Mono",
+                       background = colors[5],
+                       foreground = colors[6],
+                       padding = 0,
+                       fontsize = 37
+                       ),
+              widget.Memory(
+                       foreground = colors[1],
+                       background = colors[6],
+                       mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' -e htop')},
+                       fmt = 'Mem: {}',
+                       padding = 5
+                       ),
+              widget.TextBox(
+                       text = '',
+                       font = "Ubuntu Mono",
+                       background = colors[6],
+                       foreground = colors[7],
+                       padding = 0,
+                       fontsize = 37
+                       ),
+              widget.Volume(
+                       foreground = colors[1],
+                       background = colors[7],
+                       fmt = 'Vol: {}',
+                       padding = 5
+                       ),
+              widget.TextBox(
+                       text = '',
+                       font = "Ubuntu Mono",
+                       background = colors[7],
+                       foreground = colors[8],
+                       padding = 0,
+                       fontsize = 37
+                       ),
+              widget.KeyboardLayout(
+                       foreground = colors[1],
+                       background = colors[8],
+                       fmt = 'Keyboard: {}',
+                       padding = 5
+                       ),
+              widget.TextBox(
+                       text = '',
+                       font = "Ubuntu Mono",
+                       background = colors[8],
+                       foreground = colors[9],
+                       padding = 0,
+                       fontsize = 37
+                       ),
+              widget.Clock(
+                       foreground = colors[1],
+                       background = colors[9],
+                       format = "%A, %B %d - %H:%M ",
+                       fontsize = 18
+                       ),
+              ], 
             28,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
