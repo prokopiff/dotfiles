@@ -29,6 +29,7 @@
     vimcompatible = true
     relativenumber = true 
     automatic_update = true
+    disabled_plugins = ["neomake.vim"]
 
 # Enable autocomplete layer
 [[layers]]
