@@ -112,7 +112,7 @@ if [ -f /etc/bash.command-not-found ]; then
     . /etc/bash.command-not-found
 fi
 
-if [ "$IN_IDEA" != "1" ]; then
+if [[ ! "$TERMINAL_EMULATOR" =~ "JetBrains" ]]; then
 	eval "$(starship init zsh)"
 	[ $[ $RANDOM % 5 ] = 0 ] && fortune | cowsay || neofetch
 fi

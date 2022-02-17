@@ -4,6 +4,7 @@
 [keybindings]
   split_horiz = <Primary><Shift>Return
   resize_down = None
+  group_all = ""
 [profiles]
   [[default]]
     background_color = "#282a36"
