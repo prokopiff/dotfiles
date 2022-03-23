@@ -28,7 +28,7 @@ else
 	export EDITOR='vim'
 fi
 
-source /home/vp/.config/broot/launcher/bash/br
+#source /home/vp/.config/broot/launcher/bash/br
 alias brls='br -d -p -g -h' # cargo install broot
 alias zshconfig="vim ~/.zshrc"
 alias zshr="reset && source ~/.zshrc"
@@ -90,7 +90,7 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 setopt autocd
 setopt auto_pushd
 
-HISTSIZE=2000               #How many lines of history to keep in memory
+HISTSIZE=5000               #How many lines of history to keep in memory
 HISTFILE=~/.zsh_history     #Where to save history to disk
 SAVEHIST=100000             #Number of history entries to save to disk
 HISTDUP=erase               #Erase duplicates in the history file
@@ -111,6 +111,9 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 if [ -f /etc/bash.command-not-found ]; then
     . /etc/bash.command-not-found
 fi
+
+### 1password CLI
+eval "$(op completion zsh)"; compdef _op op
 
 if [ "$IN_IDEA" != "1" ]; then
 	eval "$(starship init zsh)"
