@@ -115,7 +115,8 @@ fi
 ### 1password CLI
 eval "$(op completion zsh)"; compdef _op op
 
-if [ "$IN_IDEA" != "1" ]; then
+if [[ ! "$TERMINAL_EMULATOR" =~ "JetBrains" ]]; then
 	eval "$(starship init zsh)"
 	[ $[ $RANDOM % 5 ] = 0 ] && fortune | cowsay || neofetch
 fi
+
