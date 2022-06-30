@@ -4,6 +4,7 @@ ZSH_THEME="muse"
 
 plugins=(
     git
+    aws
     docker
     docker-compose
     gnu-utils
